@@ -45,7 +45,13 @@ public class TriangleTest {
 
 	@Test
 	public void testCalculateLargestSum_fromFile() throws IOException {
-		Triangle triangle = new Triangle("triangle-data.txt");
+		Triangle triangle = new Triangle("test-triangle-data.txt");
 		Assert.assertEquals(27, triangle.calculateLargestSum());
+	}
+	
+	@Test
+	public void testCalculateLargestSum_fromFileWithNegativeNumbers() throws IOException {
+		Triangle triangle = new Triangle("test-triangle-data-with-neg-number.txt");
+		Assert.assertEquals(-2, triangle.calculateLargestSum());
 	}
 }
