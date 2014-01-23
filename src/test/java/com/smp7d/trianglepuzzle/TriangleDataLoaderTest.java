@@ -17,4 +17,21 @@ public class TriangleDataLoaderTest {
 			Assert.assertEquals(rowLength++, row.size());
 		}
 	}
+
+	@Test
+	public void testLoad_withNegativeNumbers() throws IOException {
+		List<List<TriangleNode>> triangleData = new TriangleDataLoader()
+				.load("test-triangle-data-with-neg-number.txt");
+		int rowLength = 1;
+		boolean foundNegative = false;
+		for (List<TriangleNode> row : triangleData) {
+			Assert.assertEquals(rowLength++, row.size());
+			if (!foundNegative) {
+				for (TriangleNode node : row) {
+					foundNegative = foundNegative || (node.getValue() < 0);
+				}
+			}
+		}
+		Assert.assertTrue(foundNegative);
+	}
 }
