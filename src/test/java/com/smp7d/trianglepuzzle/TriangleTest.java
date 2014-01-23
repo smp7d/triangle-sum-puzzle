@@ -33,4 +33,10 @@ public class TriangleTest {
 		Triangle triangle = new Triangle(triangleData);
 		Assert.assertEquals(-2, triangle.calculateLargestSum());
 	}
+	
+	@Test
+	public void testCalculateLargestSum_fromFile(){
+		Triangle triangle = new Triangle("triangle-data.txt");
+		Assert.assertEquals(27, triangle.calculateLargestSum());
+	}
 }

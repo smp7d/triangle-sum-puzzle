@@ -9,6 +9,10 @@ public class Triangle {
 		this.triangleData = triangleData;
 	}
 
+	public Triangle(final String fileFromClasspath) {
+		this.triangleData = null;
+	}
+
 	public long calculateLargestSum() {
 		return calculateLargestSum(0, 0);
 	}
