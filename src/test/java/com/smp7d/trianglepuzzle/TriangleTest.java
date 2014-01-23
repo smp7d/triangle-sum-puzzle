@@ -21,4 +21,16 @@ public class TriangleTest {
 		Triangle triangle = new Triangle(triangleData);
 		Assert.assertEquals(27, triangle.calculateLargestSum());
 	}
+	
+	@Test
+	public void testCalculateLargestSum_withNegativeNumbers(){
+		List<List<TriangleNode>> triangleData = new ArrayList<List<TriangleNode>>(4);
+		triangleData.add(Arrays.asList(new TriangleNode(0)));
+		triangleData.add(Arrays.asList(new TriangleNode(1), new TriangleNode(2)));
+		triangleData.add(Arrays.asList(new TriangleNode(2), new TriangleNode(3), new TriangleNode(1)));
+		triangleData.add(Arrays.asList(new TriangleNode(-10), new TriangleNode(-15), new TriangleNode(-7), new TriangleNode(-8)));
+		
+		Triangle triangle = new Triangle(triangleData);
+		Assert.assertEquals(-2, triangle.calculateLargestSum());
+	}
 }
