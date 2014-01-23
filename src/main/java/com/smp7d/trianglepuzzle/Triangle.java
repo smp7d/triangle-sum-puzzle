@@ -1,5 +1,6 @@
 package com.smp7d.trianglepuzzle;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Triangle {
@@ -9,8 +10,8 @@ public class Triangle {
 		this.triangleData = triangleData;
 	}
 
-	public Triangle(final String fileFromClasspath) {
-		this.triangleData = null;
+	public Triangle(final String fileFromClasspath) throws IOException {
+		this.triangleData = new TriangleDataLoader().load(fileFromClasspath);
 	}
 
 	public long calculateLargestSum() {
